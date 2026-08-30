@@ -1,0 +1,807 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #08040b;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* ================= PAGES ================= */
+
+.page {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(130, 0, 50, 0.30), transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(70, 0, 90, 0.25), transparent 35%),
+        #0b0710;
+}
+
+.page.active {
+    display: flex;
+    animation: pageEnter 0.8s ease;
+}
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================= TEXT ================= */
+
+.small-heading {
+    color: #e9a0bd;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: "Dancing Script", cursive;
+}
+
+
+/* ================= HOME ================= */
+
+#home {
+    background:
+        radial-gradient(circle at 50% 40%, #351021, transparent 50%),
+        #08040b;
+}
+
+.home-content {
+    text-align: center;
+    max-width: 750px;
+}
+
+.home-content h1 {
+    font-size: clamp(70px, 11vw, 125px);
+    color: #ff8fbd;
+    text-shadow:
+        0 0 15px rgba(255, 100, 170, 0.5),
+        0 0 50px rgba(255, 50, 130, 0.2);
+    margin-bottom: 25px;
+}
+
+.intro {
+    font-size: 19px;
+    line-height: 1.8;
+    color: #e8dce2;
+}
+
+.funny {
+    margin-top: 15px;
+    color: #ad91a0;
+}
+
+
+/* ================= BUTTON ================= */
+
+.main-btn {
+    border: 1px solid rgba(255, 150, 190, 0.4);
+
+    background:
+        linear-gradient(135deg, #a71958, #64133e);
+
+    color: white;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    margin-top: 30px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 20px rgba(255, 50, 130, 0.20);
+}
+
+.main-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 0 30px rgba(255, 70, 150, 0.45);
+}
+
+
+/* ================= QUIZ ================= */
+
+#quiz {
+    background:
+        radial-gradient(circle at center, #321124, #09050c);
+}
+
+.quiz-box {
+    width: min(700px, 100%);
+
+    padding: 45px 30px;
+
+    background: rgba(30, 13, 25, 0.90);
+
+    border: 1px solid rgba(255, 120, 170, 0.20);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 60px rgba(255, 50, 130, 0.08);
+}
+
+.question-count {
+    color: #e985ad;
+    font-weight: 600;
+}
+
+.progress {
+    width: 100%;
+    height: 6px;
+
+    background: #2b1824;
+
+    border-radius: 10px;
+
+    margin: 15px 0 30px;
+}
+
+#progressBar {
+    height: 100%;
+    width: 16%;
+
+    background: #d83c78;
+
+    border-radius: 10px;
+
+    transition: 0.4s;
+}
+
+#question {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+#answers {
+    display: grid;
+    gap: 13px;
+}
+
+.answer {
+    background: #170c15;
+
+    color: #eee;
+
+    border: 1px solid #5c2943;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.answer:hover {
+    background: #321226;
+
+    border-color: #d85086;
+
+    transform: translateX(5px);
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+#answerMessage {
+    min-height: 35px;
+
+    margin-top: 20px;
+
+    font-weight: 600;
+
+    line-height: 1.5;
+}
+
+
+/* ================= STORY ================= */
+
+.story-box {
+    max-width: 750px;
+    text-align: center;
+}
+
+.story-icon {
+    font-size: 75px;
+    margin-bottom: 15px;
+}
+
+.story-box h1 {
+    font-size: clamp(60px, 9vw, 95px);
+
+    color: #ff9bc3;
+
+    margin-bottom: 30px;
+}
+
+.story-text {
+    color: #ded2d8;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+}
+
+.story-text span {
+    color: #ff82b5;
+    font-weight: 600;
+}
+
+
+/* ================= STORY TIMELINE ================= */
+
+.story-container {
+    width: min(850px, 100%);
+
+    text-align: center;
+}
+
+.story-container h1 {
+    font-size: clamp(60px, 9vw, 95px);
+
+    color: #ff9bc3;
+}
+
+.subtitle {
+    color: #bdaeb7;
+
+    margin-bottom: 40px;
+}
+
+.timeline {
+    text-align: left;
+}
+
+.timeline-card {
+    display: flex;
+
+    gap: 20px;
+
+    background: rgba(29, 13, 24, 0.85);
+
+    border: 1px solid rgba(255, 120, 170, 0.13);
+
+    margin-bottom: 20px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    transition: 0.3s;
+}
+
+.timeline-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(255, 120, 170, 0.35);
+
+    box-shadow:
+        0 10px 40px rgba(255, 30, 120, 0.10);
+}
+
+.timeline-icon {
+    min-width: 60px;
+
+    height: 60px;
+
+    background: #321324;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+}
+
+.timeline-card h2 {
+    color: #ffb0cd;
+
+    margin-bottom: 8px;
+}
+
+.timeline-card p {
+    color: #cdbfc6;
+
+    line-height: 1.7;
+}
+
+
+/* ================= FEELINGS ================= */
+
+#feelings {
+    background:
+        radial-gradient(circle at center, #321022, #09050c);
+}
+
+.feelings-container {
+    max-width: 950px;
+
+    text-align: center;
+}
+
+.feelings-container h1 {
+    font-size: clamp(55px, 8vw, 90px);
+
+    color: #ff9cc4;
+
+    line-height: 1.1;
+}
+
+.feelings-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    margin-top: 40px;
+}
+
+.feeling-card {
+    background: rgba(31, 14, 25, 0.85);
+
+    border: 1px solid rgba(255, 120, 170, 0.15);
+
+    padding: 32px 25px;
+
+    border-radius: 25px;
+
+    transition: 0.3s;
+}
+
+.feeling-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #9f315e;
+}
+
+.feeling-card div {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.feeling-card p {
+    color: #d8cbd1;
+
+    line-height: 1.7;
+}
+
+
+/* ================= BIRTHDAY ================= */
+
+.birthday-page {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at center, #3d1127, #09040c);
+}
+
+#fireworks {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+.birthday-content {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 800px;
+
+    text-align: center;
+}
+
+.birthday-content h1 {
+    font-size: clamp(60px, 10vw, 110px);
+
+    line-height: 0.95;
+
+    color: #ff91bd;
+
+    text-shadow:
+        0 0 20px rgba(255, 90, 160, 0.45),
+        0 0 60px rgba(255, 50, 130, 0.25);
+}
+
+.gift {
+    font-size: 85px;
+
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.cake {
+    font-size: 65px;
+
+    margin: 25px 0;
+}
+
+.birthday-wish {
+    color: #dfd1d8;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin: 15px auto;
+
+    max-width: 650px;
+}
+
+.birthday-line {
+    font-size: 25px;
+
+    margin: 25px 0;
+}
+
+.surprise {
+    margin-top: 35px;
+
+    padding: 30px;
+
+    background: rgba(42, 14, 31, 0.90);
+
+    border: 1px solid rgba(255, 120, 170, 0.25);
+
+    border-radius: 25px;
+
+    animation: pageEnter 0.7s ease;
+}
+
+.surprise h2 {
+    color: #ff9fc5;
+
+    font-family: "Dancing Script", cursive;
+
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.surprise p {
+    color: #d8cbd1;
+
+    line-height: 1.7;
+
+    margin: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* ================= PROPOSAL ================= */
+
+#proposal {
+    background:
+        radial-gradient(circle at center, #391024, #09050c);
+}
+
+.proposal-box {
+    width: min(800px, 100%);
+
+    text-align: center;
+
+    background: rgba(25, 11, 21, 0.92);
+
+    border: 1px solid rgba(255, 120, 170, 0.20);
+
+    padding: 50px 30px;
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 0 70px rgba(255, 40, 130, 0.10);
+}
+
+.ring {
+    font-size: 75px;
+
+    animation: ringPulse 1.5s infinite;
+}
+
+@keyframes ringPulse {
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.proposal-box h1 {
+    font-size: clamp(60px, 8vw, 90px);
+
+    color: #ff9dc4;
+
+    margin-bottom: 30px;
+}
+
+.proposal-text {
+    color: #d9ccd3;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.proposal-box h2 {
+    font-family: "Dancing Script", cursive;
+
+    color: #ff8eb9;
+
+    font-size: 43px;
+
+    margin: 30px 0;
+}
+
+.proposal-small {
+    color: #bcaeb6;
+
+    line-height: 1.8;
+}
+
+.proposal-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 35px;
+
+    min-height: 80px;
+}
+
+#yesButton,
+#noButton {
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#yesButton {
+    background: #c92e6b;
+
+    color: white;
+
+    box-shadow:
+        0 0 25px rgba(220, 50, 120, 0.25);
+}
+
+#noButton {
+    background: #21141c;
+
+    color: #cbbcc4;
+
+    border: 1px solid #563043;
+
+    position: relative;
+
+    transition: 0.2s;
+}
+
+
+/* ================= FINAL ================= */
+
+.final-page {
+    background:
+        radial-gradient(circle at center, #4a122d, #08040b);
+}
+
+.final-box {
+    max-width: 750px;
+
+    text-align: center;
+}
+
+.big-heart {
+    font-size: 120px;
+
+    animation: heartbeat 1.2s infinite;
+
+    filter:
+        drop-shadow(0 0 25px rgba(255, 50, 130, 0.5));
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.final-box h1 {
+    font-size: clamp(60px, 9vw, 100px);
+
+    color: #ff9cc4;
+
+    line-height: 1;
+}
+
+.final-box > p {
+    color: #d9ccd3;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-top: 30px;
+}
+
+.final-box h2 {
+    font-family: "Dancing Script", cursive;
+
+    color: #ff9cc4;
+
+    font-size: 50px;
+
+    margin: 30px 0;
+}
+
+.final-message {
+    color: #d9ccd3;
+
+    font-family: "Dancing Script", cursive;
+
+    font-size: 28px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart {
+    position: fixed;
+
+    bottom: -40px;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    from {
+        transform: translateY(0) rotate(0deg);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 600px) {
+
+    .page {
+        padding: 25px 15px;
+    }
+
+    .feelings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-card {
+        padding: 20px;
+    }
+
+    .timeline-icon {
+        min-width: 50px;
+
+        height: 50px;
+
+        font-size: 22px;
+    }
+
+    .proposal-box {
+        padding: 35px 20px;
+    }
+
+    .proposal-box h2 {
+        font-size: 36px;
+    }
+
+    .birthday-wish {
+        font-size: 15px;
+    }
+
+}
